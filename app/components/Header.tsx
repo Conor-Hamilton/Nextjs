@@ -8,22 +8,21 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="relative p-4 md:p-6 shadow-md bg-white z-50">
+    <header className="relative p-4 md:p-6 shadow-md bg-white border-b-4 border-green-700">
       <div className="flex justify-between items-center">
-        {/* Logo */}
         <div className="w-24 h-24 relative">
           <Image
-            src="/logo.jpg" 
-            alt="Logo" 
-            width={96} 
-            height={96} 
-            objectFit="cover" 
-            className="rounded-full" 
+            src="/logo.jpg"
+            alt="Logo"
+            width={96}
+            height={96}
+            objectFit="cover"
+            className="rounded-full"
           />
         </div>
 
-        {/* Hamburger Menu Button */}
         <button
+          aria-label="Toggle menu"
           className="md:hidden focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
@@ -43,7 +42,6 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Navigation */}
         <nav className="hidden md:flex space-x-6">
           <Link href="/about" className="hover:underline text-gray-700">
             About
@@ -57,9 +55,8 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Mobile Menu */}
       <nav
-        className={`fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg z-[101] transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
