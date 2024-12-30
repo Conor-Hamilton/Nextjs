@@ -25,7 +25,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }
