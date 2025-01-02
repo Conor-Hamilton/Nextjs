@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactForm from "./components/ContactForm";
+import Carousel from "./components/Carousel";
 
 export default function HomePage() {
   return (
@@ -145,37 +146,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-32 bg-gray-100 text-center">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl md:text-4xl font-bold mb-8 text-gray-800">
-            What Our Customers Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-20">
-            <div className="p-6 bg-white rounded-lg shadow">
-              <p className="text-gray-600 italic mb-4">
-                &quot;The team transformed my overgrown garden into a stunning
-                space. Highly recommend!&quot;
-              </p>
-              <h3 className="font-semibold text-green-700">Jane Doe</h3>
-            </div>
+      <section className="py-52 bg-gray-100 text-center">
+<div className="py-12">
 
-            <div className="p-6 bg-white rounded-lg shadow">
-              <p className="text-gray-600 italic mb-4">
-                &quot;Professional and reliable service. My lawn has never
-                looked better!&quot;
-              </p>
-              <h3 className="font-semibold text-green-700">John Smith</h3>
-            </div>
-
-            <div className="p-6 bg-white rounded-lg shadow">
-              <p className="text-gray-600 italic mb-4">
-                &quot;Their attention to detail is fantastic. I love my new
-                garden layout!&quot;
-              </p>
-              <h3 className="font-semibold text-green-700">Emily Johnson</h3>
-            </div>
-          </div>
-        </div>
+          <Carousel />
+</div>
       </section>
 
       <section
