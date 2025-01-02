@@ -147,10 +147,10 @@ export default function HomePage() {
       </section>
 
       <section className="py-52 bg-gray-100 text-center">
-<div className="py-12">
+
 
           <Carousel />
-</div>
+
       </section>
 
       <section

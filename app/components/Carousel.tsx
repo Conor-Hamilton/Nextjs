@@ -1,104 +1,94 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
+const testimonials = [
+  {
+    quote:
+      "The team transformed my overgrown garden into a stunning space. Highly recommend!",
+    name: "Jane Doe",
+  },
+  {
+    quote:
+      "Professional and reliable service. My lawn has never looked better!",
+    name: "John Smith",
+  },
+  {
+    quote:
+      "Their attention to detail is fantastic. I love my new garden layout!",
+    name: "Emily Johnson",
+  },
+];
 
 export default function Carousel() {
-  const testimonials = [
-    {
-      quote:
-        "The team transformed my overgrown garden into a stunning space. Highly recommend!",
-      name: "Jane Doe",
-    },
-    {
-      quote:
-        "Professional and reliable service. My lawn has never looked better!",
-      name: "John Smith",
-    },
-    {
-      quote:
-        "Their attention to detail is fantastic. I love my new garden layout!",
-      name: "Emily Johnson",
-    },
-    {
-      quote:
-        "Their attention to detail is fantastic. I love my new garden layout!",
-      name: "Emily Johnson",
-    },
-    {
-      quote:
-        "Their attention to detail is fantastic. I love my new garden layout!",
-      name: "Emily Johnson",
-    },
-    {
-      quote:
-        "Their attention to detail is fantastic. I love my new garden layout!",
-      name: "Emily Johnson",
-    },
-    {
-      quote:
-        "Their attention to detail is fantastic. I love my new garden layout!",
-      name: "Emily Johnson",
-    },
-    {
-      quote:
-        "Their attention to detail is fantastic. I love my new garden layout!",
-      name: "Emily Johnson",
-    },
-  ];
-
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isFading, setIsFading] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFading(true);
-      setTimeout(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
         setActiveIndex((prevIndex) =>
           prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
         );
-        setIsFading(false);
-      }, 500);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [isHovered]);
 
   return (
-    <section className="py-16 bg-gray-50">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">
+    <section
+      ref={ref}
+      role="region"
+      aria-live="polite"
+      aria-label="Customer Testimonials"
+      className={`py-16 bg-gray-50 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      } transition-all duration-700`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <h2 className="text-2xl md:text-4xl font-bold mb-8 text-gray-800">
         What Our Customers Say
       </h2>
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative overflow-hidden max-w-4xl mx-auto">
         <div
-          className={`transition-opacity duration-500 ease-in-out ${
-            isFading ? "opacity-0" : "opacity-100"
-          }`}
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{
+            transform: `translateX(-${activeIndex * 100}%)`,
+          }}
         >
-          <div className="bg-white border-t-4 border-green-700 rounded-lg shadow-lg p-8 mx-4 md:mx-0">
-            <p className="text-gray-600 italic text-lg md:text-xl mb-6 leading-relaxed">
-              &quot;{testimonials[activeIndex].quote}&quot;
-            </p>
-            <h3 className="text-green-700 font-bold text-right text-lg">
-              - {testimonials[activeIndex].name}
-            </h3>
-          </div>
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="w-full flex-shrink-0 p-4"
+              style={{ minWidth: "100%" }}
+            >
+              <div className="bg-white border-t-4 border-green-700 rounded-lg shadow-lg p-8">
+                <p className="text-gray-600 italic text-lg md:text-xl mb-6 leading-relaxed">
+                  &quot;{testimonial.quote}&quot;
+                </p>
+                <h3 className="text-green-700 font-bold text-right text-lg">
+                  - {testimonial.name}
+                </h3>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="flex justify-center mt-10 space-x-3">
+      <div className="flex justify-center mt-8 space-x-4">
         {testimonials.map((_, index) => (
           <button
             key={index}
-            className={`w-4 h-4 rounded-full transition-all duration-300 ${
+            aria-pressed={index === activeIndex}
+            className={`w-4 h-4 rounded-full transition-transform duration-300 ${
               index === activeIndex
-                ? "bg-green-700 scale-125 shadow-md"
+                ? "bg-green-700 scale-150 shadow-md"
                 : "bg-gray-300 hover:bg-green-400"
             }`}
-            onClick={() => {
-              setActiveIndex(index);
-              setIsFading(true);
-              setTimeout(() => setIsFading(false), 500);
-            }}
-            aria-label={`Slide ${index + 1}`}
+            onClick={() => setActiveIndex(index)}
           ></button>
         ))}
       </div>
