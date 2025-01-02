@@ -47,10 +47,10 @@ export default function Header() {
             About
           </Link>
           <Link href="/our-work" className="hover:underline text-gray-700">
-            Our Work
+            Our Services
           </Link>
           <Link href="/quote" className="hover:underline text-gray-700">
-            Get a Quote
+            Contact Us
           </Link>
         </nav>
       </div>
