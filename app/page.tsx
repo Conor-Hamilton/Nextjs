@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ContactForm from "./components/ContactForm";
 import Carousel from "./components/Carousel";
+import ServicesSection from "./components/Services";
 
 export default function HomePage() {
   return (
@@ -42,115 +43,11 @@ export default function HomePage() {
       </div>
 
       <section className="py-32 bg-gray-100 text-center">
-        <h2 className="text-2xl md:text-4xl font-bold mb-8 text-gray-800">
-          Services We Offer
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 px-6 md:px-12">
-          <div className="p-6 rounded-lg">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden relative">
-              <Image
-                src="/garden_maintenance.jpg"
-                alt="Garden Maintenance"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
-
-            <h3 className="text-xl font-semibold mb-2 text-green-700">
-              Garden Maintenance
-            </h3>
-            <p className="text-gray-600">
-              Our garden maintenance service offers comprehensive care for your
-              outdoor space.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-lg">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden relative">
-              <Image
-                src="/grass.jpeg"
-                alt="Grass Cutting"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-green-700">
-              Grass Cutting
-            </h3>
-            <p className="text-gray-600">
-              We understand that a healthy lawn is an important feature of the
-              garden. The place for relaxation, play and enjoyment!
-            </p>
-          </div>
-
-          <div className="p-6 rounded-lg">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden relative">
-              <Image
-                src="/hedge.jpg"
-                alt="Hedge Cutting"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-green-700">
-              Hedge Cutting
-            </h3>
-            <p className="text-gray-600">
-              Our hedge cutting service is designed to help you keep your hedges
-              and shrubs in perfect shape.
-            </p>
-          </div>
-          <div className="p-6 rounded-lg">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden relative">
-              <Image
-                src="/soft-landscaping.jpg"
-                alt="Soft Landscaping"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-green-700">
-              Soft Landscaping
-            </h3>
-            <p className="text-gray-600">
-              Our soft landscaping service will be able to work with you to
-              create a customised plan that meets your needs and budget, whether
-              you have a small residential garden or a large commercial
-              property.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-lg">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden relative">
-              <Image
-                src="/planting.jpg"
-                alt="Planting"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-green-700">
-              Planting
-            </h3>
-            <p className="text-gray-600">
-              Our planting service is perfect for those who want to add colour
-              to their garden, but don’t have the time or expertise to complete
-              that.
-            </p>
-          </div>
-        </div>
+        <ServicesSection />
       </section>
 
       <section className="py-52 bg-gray-100 text-center">
-
-
-          <Carousel />
-
+        <Carousel />
       </section>
 
       <section
