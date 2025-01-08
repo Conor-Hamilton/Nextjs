@@ -101,6 +101,7 @@ export default function ServicesSection() {
       </h2>
 
       <div className="flex flex-col md:flex-row max-w-6xl mx-auto">
+        {/* Vertical Tabs */}
         <div className="flex-shrink-0 w-full md:w-1/4 bg-white shadow-md rounded-lg p-4 space-y-4">
           {services.map((service) => (
             <button
@@ -117,6 +118,7 @@ export default function ServicesSection() {
           ))}
         </div>
 
+        {/* Active Tab Content */}
         <div className="flex-grow bg-white shadow-md rounded-lg p-6 ml-0 md:ml-6">
           <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
             <div className="w-48 h-48 relative rounded-lg overflow-hidden shadow-md">
@@ -144,8 +146,14 @@ export default function ServicesSection() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-11/12 md:w-1/2 relative shadow-lg overflow-y-auto max-h-[80vh]">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={handleModalClose}
+        >
+          <div
+            className="bg-white rounded-lg p-6 w-11/12 md:w-1/2 relative shadow-lg overflow-y-auto max-h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={handleModalClose}
               className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl"
@@ -163,11 +171,12 @@ export default function ServicesSection() {
               {activeTab.title}
             </h3>
             <p className="text-gray-600 leading-relaxed">{activeTab.details}</p>
-
             {activeTab.list && (
-              <ul className="mt-6 text-gray-600 list-disc pl-6">
+              <ul className="mt-4 text-gray-600 list-disc list-inside flex flex-col items-center">
                 {activeTab.list.map((item, index) => (
-                  <li key={index}>{item}</li>
+                  <li key={index} className="text-center">
+                    {item}
+                  </li>
                 ))}
               </ul>
             )}

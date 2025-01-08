@@ -33,7 +33,7 @@ export default function Carousel() {
         setActiveIndex((prevIndex) =>
           prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
         );
-      }, 15000);
+      }, 4000);
       return () => clearInterval(interval);
     }
   }, [isHovered]);
