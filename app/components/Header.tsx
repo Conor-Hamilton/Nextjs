@@ -43,6 +43,9 @@ export default function Header() {
         </button>
 
         <nav className="hidden md:flex space-x-6">
+          <Link href="/" className="hover:underline text-gray-700">
+            Home
+          </Link>
           <Link href="/about" className="hover:underline text-gray-700">
             About
           </Link>

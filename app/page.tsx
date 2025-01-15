@@ -6,7 +6,7 @@ import ServicesSection from "./components/Services";
 export default function HomePage() {
   return (
     <div className="relative">
-      <section className="relative h-[75vh] md:h-screen overflow-hidden">
+      <section className="relative h-[65vh] md:h-[75vh] overflow-hidden">
         <Image
           src="/garden.jpg"
           alt="Beautiful Garden"
@@ -32,7 +32,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="absolute top-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-32 h-32 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-green-700 bg-white shadow-lg">
+      <div className="absolute top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-32 h-32 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-green-700 bg-white shadow-lg">
         <Image
           src="/logo.jpg"
           alt="Bluebell Robin Gardens Logo"
@@ -42,19 +42,19 @@ export default function HomePage() {
         />
       </div>
 
-      <section className="py-32 bg-gray-100 text-center">
+      <section className="py-20 bg-gray-100 text-center">
         <ServicesSection />
       </section>
 
-      <section className="py-52 bg-gray-100 text-center">
+      <section className="py-24 bg-gray-100 text-center">
         <Carousel />
       </section>
 
       <section
         id="contact"
-        className="py-12 px-6 bg-gray-100 text-center text-xl"
+        className="py-8 px-6 bg-gray-100 text-center text-xl"
       >
-        <h3 className="text-gray-600 mb-8">
+        <h3 className="text-gray-600 mb-6">
           Have a question or need a quote? Fill out the form below, and we will
           get back to you.
         </h3>
