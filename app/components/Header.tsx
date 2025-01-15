@@ -52,7 +52,7 @@ export default function Header() {
           <Link href="/our-work" className="hover:underline text-gray-700">
             Our Services
           </Link>
-          <Link href="/quote" className="hover:underline text-gray-700">
+          <Link href="/contact" className="hover:underline text-gray-700">
             Contact Us
           </Link>
         </nav>
@@ -81,7 +81,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/quote" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
               Get a Quote
             </Link>
           </li>
