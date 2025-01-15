@@ -6,7 +6,7 @@ export default function ContactPage() {
       <section
         className="relative h-72 md:h-96 flex items-center justify-center text-center text-white"
         style={{
-          backgroundImage: "url('/garden2.jpg')", // Replace with your image
+          backgroundImage: "url('/garden2.jpg')", 
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
